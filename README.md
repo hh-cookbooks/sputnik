@@ -1,7 +1,6 @@
 Description
 ===========
 
-
 This is a base cookbook for applying sputnik developer profiles and
 repositiories onto a Ubuntu 12.04 system.
 
@@ -13,6 +12,38 @@ The result is a [local repo](https://github.com/sputnik/cookbook/blob/master/rec
 
 Dependent PPAs and debian-seeds via the yaml/attributes could be forthcoming.
 
+Mini Tutorial
+=============
+
+
+## Install git and chef-solo, clone this repo, then run a few sputnik recipes:
+
+```
+# as root:
+apt-get install chef git #this works on the sputnik xps 13 images
+git clone git@github.com:hh-cookbooks/sputnik.git
+chef-solo chef-solo -c sputnik/config/solo.rb -o sputnik::hippiehacker
+chef-solo chef-solo -c sputnik/config/solo.rb -o sputnik::from_yaml_example
+# or populate /etc/sputnik with your own yml files
+chef-solo chef-solo -c sputnik/config/solo.rb -o sputnik::from_yaml
+```
+
+## Install the sputnik profiles as you would any other package:
+
+```
+apt-cache search sputnik-profile
+apt-get install sputnik-profile-foo-bar
+apt-get autoremove sputink-profile-foo-bar
+```
+
+
+## Removal of packages and the repo we created:
+
+```
+apt-get autoremove sputnik-profile-*
+rm /etc/apt/sources.list.d/sputnik-local.list
+rm -rf /var/lib/sputnik
+```
 
 Logic
 =====
