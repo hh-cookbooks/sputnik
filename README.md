@@ -16,19 +16,28 @@ Mini Tutorial
 =============
 
 
-## Install git and chef-solo, clone this repo, then run a few sputnik recipes:
+### Install git and chef-solo, and clone this repo
 
 ```
 # as root:
 apt-get install chef git #this works on the sputnik xps 13 images
 git clone git@github.com:hh-cookbooks/sputnik.git
+```
+
+### Run some of the built in profiles
+
+```
 chef-solo chef-solo -c sputnik/config/solo.rb -o sputnik::hippiehacker
 chef-solo chef-solo -c sputnik/config/solo.rb -o sputnik::from_yaml_example
-# or populate /etc/sputnik with your own yml files
+```
+
+### Or put some profile yml files in /etc/sputnik
+
+```
 chef-solo chef-solo -c sputnik/config/solo.rb -o sputnik::from_yaml
 ```
 
-## Install the sputnik profiles as you would any other package:
+### Install the sputnik profiles as you would any other package:
 
 ```
 apt-cache search sputnik-profile
@@ -37,7 +46,7 @@ apt-get autoremove sputink-profile-foo-bar
 ```
 
 
-## Removal of packages and the repo we created:
+### Removal of packages and the repo we created:
 
 ```
 apt-get autoremove sputnik-profile-*
