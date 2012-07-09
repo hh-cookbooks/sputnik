@@ -21,7 +21,7 @@ Mini Tutorial
 ```
 # as root:
 apt-get install chef git #this works on the sputnik xps 13 images
-git clone git@github.com:hh-cookbooks/sputnik.git
+git clone git://github.com/hh-cookbooks/sputnik.git
 ```
 
 ### Run some of the built in profiles
