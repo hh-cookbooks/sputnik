@@ -9,7 +9,7 @@
 # include/compile in sputnik::from_yaml
 
 remote_directory '/etc/sputnik' do
-  source 'sputnik_example_profiles'
+  source 'example_profiles'
   action :nothing
 end.run_action :create
 
